@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class User::ProductsController < User::UserController
   before_action :get_product, only: [:edit, :destroy, :update]
 
   def index
@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path
+      redirect_to user_products_path
     else
       render :new
     end
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update_attributes(product_params)
-      redirect_to products_path
+      redirect_to user_products_path
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_path
+    redirect_to user_products_path
   end
 
   private

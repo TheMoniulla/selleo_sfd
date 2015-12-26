@@ -1,4 +1,4 @@
-class OrderItemsController < ApplicationController
+class User::OrderItemsController < User::UserController
   before_action :get_order_item, only: [:edit, :update, :destroy]
 
   def index
@@ -12,7 +12,7 @@ class OrderItemsController < ApplicationController
   def create
     @order_item = current_user.order_items.new(order_item_params)
     if @order_item.save
-      redirect_to order_items_path
+      redirect_to user_order_items_path
     else
       render :new
     end
@@ -23,7 +23,7 @@ class OrderItemsController < ApplicationController
 
   def update
     if @order_item.update_attributes(order_item_params)
-      redirect_to order_items_path
+      redirect_to user_order_items_path
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class OrderItemsController < ApplicationController
 
   def destroy
     @order_item.destroy
-    redirect_to order_items_path
+    redirect_to user_order_items_path
   end
 
   private

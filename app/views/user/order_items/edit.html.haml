@@ -1,6 +1,6 @@
 %h1 Edit order item
 
-=simple_form_for @order_item do |f|
+=simple_form_for [:user, @order_item] do |f|
   =f.input :product_id, as: :select, collection: Product.all, include_blank: false
   =f.input :quantity, input_html: {min: 1, step: 1, value: f.object.quantity || '1'}
   =f.input :note

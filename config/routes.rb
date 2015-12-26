@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resource :home, only: :show, controller: :home
-  resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :order_items, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  namespace :user do
+    resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :order_items, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
 end
