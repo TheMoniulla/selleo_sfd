@@ -1,0 +1,22 @@
+%h1 Current order items
+
+=link_to 'New order item', new_order_item_path, class: 'btn btn-default'
+
+%table.table.table-striped
+  %tr
+    %th Name
+    %th Product url
+    %th Quantity
+    %th Created at
+    %th Note
+    %th Actions
+  -@order_items.each do |order_item|
+    %tr
+      %td= order_item.product.name
+      %td= link_to order_item.product.url, order_item.product.url, target: '_blank'
+      %td= order_item.quantity
+      %td= order_item.created_at.strftime('%F')
+      %td= order_item.note
+      %td
+        = link_to 'Edit', edit_order_item_path(order_item)
+        = link_to 'Delete', order_item_path(order_item), method: :delete, data: {confirm: 'Are you sure?'}
