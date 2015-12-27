@@ -15,4 +15,9 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
     resources :order_items, only: [:index, :update]
   end
+
+  namespace :admin do
+    resources :users, only: :index
+  end
 end
+

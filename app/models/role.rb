@@ -7,4 +7,8 @@ class Role < ActiveRecord::Base
             allow_nil: true
 
   scopify
+
+  def to_s
+    name
+  end
 end

@@ -1,0 +1,12 @@
+%h1 Users
+
+%table.table.table-striped
+  %tr
+    %th Email
+    %th Admin?
+    %th Orderer?
+  -@users.each do |user|
+    %tr
+      %td= user.email
+      %td= check_box_tag("admin_#{user.id}", 1, user.admin?)
+      %td= check_box_tag("orderer_#{user.id}", 1, user.orderer?)
