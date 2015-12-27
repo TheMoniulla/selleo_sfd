@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   namespace :orderer do
+    root 'order_items#index'
     resources :orders, only: [:index, :show]
+    resources :order_items, only: :index
   end
 end
