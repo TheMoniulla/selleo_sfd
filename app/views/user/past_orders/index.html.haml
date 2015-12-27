@@ -1,0 +1,14 @@
+%h1 Past orders
+
+%table.table.table-striped
+  %tr
+    %th Order id
+    %th Closed at
+    %th My order items
+    %th Actions
+  - @past_orders.each do |past_order|
+    %tr
+      %td= past_order.id
+      %td= past_order.closed_at
+      %td= past_order.order_items.count
+      %td= link_to 'Show', user_past_order_path(past_order)

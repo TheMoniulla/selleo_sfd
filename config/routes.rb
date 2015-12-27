@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :user do
     resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :order_items, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :past_orders, only: [:index, :show]
   end
 
   namespace :orderer do

@@ -1,0 +1,15 @@
+%h1 Past order
+%p
+  Ordered at:
+  = @past_order.closed_at
+
+%table.table.table-striped
+  %tr
+    %th Name
+    %th Url
+    %th Quantity
+  - @order_items.each do |order_item|
+    %tr
+      %td= order_item.product.name
+      %td= link_to order_item.product.url, order_item.product.url, target: '_blank'
+      %td= order_item.quantity
