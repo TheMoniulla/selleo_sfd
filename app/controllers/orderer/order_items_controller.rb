@@ -6,7 +6,7 @@ class Orderer::OrderItemsController < Orderer::OrdererController
 
   def update
     @order_item = OrderItem.find(params[:id])
-    @order_item.update_attributes(order_id: current_order.id)
+    @order_item.update_attributes(order_id: params[:cancel] == 'true' ? nil : current_order.id)
     redirect_to orderer_order_items_path
   end
 end
