@@ -14,6 +14,8 @@
       - if current_user
         = link_to 'Products', user_products_path
         = link_to 'OrderItems', user_order_items_path
+        - if current_user.orderer?
+          = link_to 'Orders', orderer_orders_path
         = link_to 'Sign out', destroy_user_session_path, method: :delete
       - else
         = link_to 'Sign in', new_user_session_path

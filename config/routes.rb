@@ -9,4 +9,8 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :order_items, only: [:index, :new, :create, :edit, :update, :destroy]
   end
+
+  namespace :orderer do
+    resources :orders, only: [:index, :show]
+  end
 end

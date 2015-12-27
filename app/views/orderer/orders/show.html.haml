@@ -1,0 +1,21 @@
+%h1 Order
+
+%p
+  State:
+  = @order.state
+%p
+  Closed at:
+  = @order.closed_at.strftime('%F') if @order.closed_at
+
+%p Order items
+
+%table.table.table-striped
+  %tr
+    %th Name
+    %th Quantity
+    %th User
+  - @order_items.each do |order_item|
+    %tr
+      %td= order_item.product.name
+      %td= order_item.quantity
+      %td= order_item.user.email
