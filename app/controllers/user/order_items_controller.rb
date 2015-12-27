@@ -2,7 +2,7 @@ class User::OrderItemsController < User::UserController
   before_action :get_order_item, only: [:edit, :update, :destroy]
 
   def index
-    @order_items = current_user.order_items
+    @order_items = current_user.order_items.current(current_order.id)
   end
 
   def new
