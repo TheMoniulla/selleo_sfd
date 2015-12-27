@@ -1,6 +1,6 @@
 class User::PastOrdersController < User::UserController
   def index
-    @past_orders = Order.where(state: 'closed')
+    @past_orders = Order.closed
   end
 
   def show

@@ -4,6 +4,9 @@ class Order < ActiveRecord::Base
   validates :state, presence: true, inclusion: {in: %w(open closed)}
   validate :only_one_open_order_can_exist
 
+  scope :open, -> { where(state: 'open') }
+  scope :closed, -> { where(state: 'closed') }
+
   private
 
   def only_one_open_order_can_exist

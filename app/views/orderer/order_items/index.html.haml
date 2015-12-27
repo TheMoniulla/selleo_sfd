@@ -1,10 +1,10 @@
 %h1 Open order items
 
-= render partial: 'table', locals: {order_items: @order_items}
+= render partial: 'table', locals: {order_items: @order_items_without_order}
 
 %h1 Ordered items
 
-= render partial: 'table', locals: {order_items: @ordered_items}
+= render partial: 'table', locals: {order_items: @order_items_for_current_order}
 
 .text-center
   = link_to 'Close order', orderer_order_path(current_order), method: :put, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'

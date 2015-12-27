@@ -1,7 +1,7 @@
 class Orderer::OrderItemsController < Orderer::OrdererController
   def index
-    @order_items = OrderItem.where(order_id: nil)
-    @ordered_items = OrderItem.where(order_id: current_order.id)
+    @order_items_without_order = OrderItem.without_order
+    @order_items_for_current_order = OrderItem.for_current_order(current_order.id)
   end
 
   def update

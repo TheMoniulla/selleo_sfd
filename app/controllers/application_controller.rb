@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-    Order.where(state: 'open').first
+    Order.open.first
   end
 end

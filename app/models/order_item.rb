@@ -7,4 +7,6 @@ class OrderItem < ActiveRecord::Base
   validates :quantity, numericality: {only_integer: true, greater_than: 0}
 
   scope :current, -> (current_order_id) { where("order_id IS NULL OR order_id = ?", current_order_id).order(:created_at) }
+  scope :without_order, -> { where(order_id: nil) }
+  scope :for_current_order, -> (current_order_id) { where(order_id: current_order_id) }
 end

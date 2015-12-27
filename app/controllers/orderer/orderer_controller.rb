@@ -5,10 +5,12 @@ class Orderer::OrdererController < ApplicationController
   private
 
   def check_orderer
-    redirect_to root_path, alert: 'You have to be logged in as orderer to see this page.' unless current_user && current_user.orderer?
+    unless current_user && current_user.orderer?
+      redirect_to root_path, alert: 'You have to be logged in as orderer to see this page.'
+    end
   end
 
   def create_open_order
-    Order.create(state: 'open') if Order.where(state: 'open').empty?
+    Order.create(state: 'open') unless current_order
   end
 end
