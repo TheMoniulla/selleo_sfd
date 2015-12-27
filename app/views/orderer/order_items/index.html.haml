@@ -5,3 +5,6 @@
 %h1 Ordered items
 
 = render partial: 'table', locals: {order_items: @ordered_items}
+
+.text-center
+  = link_to 'Close order', orderer_order_path(current_order), method: :put, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'

@@ -11,4 +11,4 @@
       %td= link_to order_item.product.url, order_item.product.url, target: '_blank'
       %td= order_item.quantity
       %td= order_item.user.email
-      %td= link_to 'ordered', orderer_order_item_path(order_item, cancel: order_item.order_id.present?), method: :put, class: 'btn btn-success'
+      %td= link_to order_item.order_id.present? ? 'cancel' : 'ordered', orderer_order_item_path(order_item, cancel: order_item.order_id.present?), method: :put, class: 'btn btn-success'
