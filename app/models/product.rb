@@ -9,6 +9,6 @@ class Product < ActiveRecord::Base
   private
 
   def clean_url
-    self.url = url.split('#').first
+    self.url = url.split('#').first if url
   end
 end
